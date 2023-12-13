@@ -1,0 +1,6 @@
+# Ignore artifacts:
+.next
+build
+dist
+coverage
+**/storybook-static/

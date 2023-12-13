@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": "src",
+    "declaration": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "jsx": "preserve",
+    "lib": [
+      "es6",
+      "dom",
+      "dom.iterable"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts", 
+    "utils/LoadStyles.ts"  
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

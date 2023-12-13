@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sora';
+  src: url('../public/fonts/Sora/Sora-VariableFont_wght.ttf');
+}
+
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    -webkit-text-size-adjust: 100%;
+    background: theme('colors.neutral.100');
+    -ms-text-size-adjust: 100%;
+    /* line-height: 1.5; */
+    height: 100%;
+  }
+
+  body {
+    @apply min-h-full;
+    position: relative;
+    font-size: calc(12px + 0.2vw);
+    font-family: Sora, sans-serif;
+    color: white;
+    background: #03050D;
+    overflow: auto;
+    user-select: none;
+  }
+
+  @media screen and (min-width: 1728px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  span, p, a {
+    font-size: 1rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+}
+
+ol,
+ul {
+    padding-left: 1.3em;
+    padding-right: 1.5em;
+}
+
+ol ol,
+ul ul,
+ul ol,
+ol ul {
+    margin: 0.5em 0 1em;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul,
+ol {
+    max-width: 100%;
+}
+
+li {
+    padding-left: 0.3em;
+    line-height: 1.6em;
+}
+
+li + li {
+    margin-top: 0.5em;
+}
+
+dt {
+    float: left;
+    margin: 0 20px 0 0;
+    width: 120px;
+    color: #daf2fd;
+    font-weight: 500;
+    text-align: right;
+}
+
+dd {
+    margin: 0 0 5px 0;
+    text-align: left;
+}
+
+.hoverOpactiy {
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
