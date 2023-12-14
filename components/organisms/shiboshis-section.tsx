@@ -24,9 +24,9 @@ export const ShiboshisSection = () => {
           <Image alt="pic" src={'/images/shiboshis-logo.png'} width={412} height={157} />
 
           <div className="text-center text-[16px] text-[#ECECEC]">
-            SHIBOSHIS, 10,000 unique Shiba Inu NFTs on Ethereum, are tradable on ShibaSwap with
+            {`SHIBOSHIS, 10,000 unique Shiba Inu NFTs on Ethereum, are tradable on ShibaSwap with
             special traits. They're integral to our upcoming Shiboshi Game, providing strategic play
-            and unique benefits.
+            and unique benefits.`}
           </div>
 
           <NormalButton>

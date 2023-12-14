@@ -15,7 +15,7 @@ export const ShibariumSection = () => {
     <SectionWrapper className="flex w-full flex-col items-center justify-center gap-[48px]">
       <div className="flex flex-col items-center justify-center gap-4">
         <div className="text-[40px]">Shibarium</div>
-        <div className="text-[18px]">Shib's L2 Blockchain</div>
+        <div className="text-[18px]">{`Shib's L2 Blockchain`}</div>
       </div>
 
       <div className="flex items-center justify-center">
@@ -33,9 +33,9 @@ export const ShibariumSection = () => {
             <div className="relative h-[1px] w-full bg-[#202740]" />
 
             <div className="text-[16px] font-[300] text-[#ECECEC]">
-              Stake your BONE tokens to support network security and earn rewards. As a Delegator,
+              {`Stake your BONE tokens to support network security and earn rewards. As a Delegator,
               you indirectly contribute to consensus by backing Validators, gaining from the
-              ecosystem's success.
+              ecosystem's success.`}
             </div>
 
             <div>
