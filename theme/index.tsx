@@ -17,6 +17,10 @@ export const NormalButton = styled.button`
 
   font-size: 16px;
   font-weight: 300;
+
+  &.shadow {
+    box-shadow: 0px 0px 8px 0px #f88523;
+  }
 `;
 
 export const ColorButton = styled.button`
