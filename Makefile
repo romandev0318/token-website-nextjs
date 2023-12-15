@@ -22,7 +22,7 @@ docker-build:
 docker-run:
 	docker run -d --name $(DOCKER_CONTAINER_NAME) -p 3000:3000 $(DOCKER_IMAGE_NAME)
 
-docker-stop:
+docker-clean:
 	docker stop $(DOCKER_CONTAINER_NAME) || true
 	docker rm $(DOCKER_CONTAINER_NAME) || true
 
