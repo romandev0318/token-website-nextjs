@@ -1,5 +1,5 @@
-DOCKER_IMAGE_NAME = shib-name-service
-DOCKER_CONTAINER_NAME = shib-name-service-container
+DOCKER_IMAGE_NAME = shiba-token-frontend
+DOCKER_CONTAINER_NAME = shiba-token-frontend-container
 
 # Default Docker image tag
 DEFAULT_TAG := latest
