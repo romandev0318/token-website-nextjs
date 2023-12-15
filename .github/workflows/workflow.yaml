@@ -1,0 +1,203 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  pull_request:
+    branches:
+      - main
+env:
+  AWS_REGION: us-east-1
+  AWS_TEST_CLUSTER_REGION: ap-south-1
+  TEST_CLUSTER_NAME: default-shibaone-cluster
+
+  AWS_PROD_CLUSTER_REGION: us-west-2
+  PROD_CLUSTER_NAME: shibio-shibaone-cluster
+
+jobs:
+  build-and-test-deploy:
+    name: Test, Build, Push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache node_modules and Yarn cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+            ./node_modules
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-node-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-node-yarn-${{ hashFiles('**/yarn.lock') }}-
+      #- name: Add GitHub Package Registry authentication token to .npmrc
+      # run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" >> .npmrc
+
+      - name: Install Yarn
+        run: npm install -g yarn @lingui/cli
+
+      - name: Install dependencies
+        run: make get-deps
+
+      - name: Build
+        run: make build
+
+      - name: Test
+        run: make test
+
+      - name: Create Archive
+        run: zip -r build.zip .next public
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: |
+            build.zip
+
+      - name: Build Docker Image
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: make docker-build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        if: startsWith(github.ref, 'refs/tags/v')
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Push image to Amazon ECR
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: shiba-token-frontend
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker tag shiba-token-frontend:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+  deploy:
+    name: Deploy Helm Chart to EKS
+    runs-on: ubuntu-latest
+    needs: build-and-test-deploy
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Check if Tag Push
+        id: check_tag
+        run: echo "::set-output name=isTagPush::${{ startsWith(github.ref, 'refs/tags/v') }}"
+
+      - name: Check if Tag Ends with -prod or -test
+        id: check_if_test_or_prod
+        run: echo "::set-output name=isTagProdOrTest::${{ endsWith(github.ref, '-prod') || endsWith(github.ref, '-test') }}"
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+      - name: Check Deployment Environment
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true'
+        id: check_deployment_environment
+        run: |
+          if [[ ${{ endsWith(github.ref, '-prod') }} == true ]]; then
+            DEPLOYMENT_ENV="prod"
+          elif [[ ${{ endsWith(github.ref, '-test') }} == true ]]; then
+            DEPLOYMENT_ENV="test"
+          else
+            DEPLOYMENT_ENV="other"  # You can change this to a suitable value if needed
+          fi
+
+          echo "deploymentEnv: $DEPLOYMENT_ENV"
+          echo "::set-output name=deploymentEnv::$DEPLOYMENT_ENV"
+
+      - name: Configure Production Environment AWS Credentials
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true' && steps.check_deployment_environment.outputs.deploymentEnv == 'prod'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_PROD_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_PROD_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_PROD_CLUSTER_REGION }}
+
+      - name: Configure Test Environment AWS Credentials
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true' && steps.check_deployment_environment.outputs.deploymentEnv == 'test'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_TEST_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_TEST_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_TEST_CLUSTER_REGION }}
+
+      - name: Update Kubeconfig for EKS Cluster
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true'
+        run: |
+          DEPLOYMENT_ENV="${{ steps.check_deployment_environment.outputs.deploymentEnv }}"
+          if [[ "$DEPLOYMENT_ENV" == "test" ]]; then
+            echo "Setting up the test environment..."
+            aws eks update-kubeconfig --name ${{ env.TEST_CLUSTER_NAME}} --region ${{ env.AWS_TEST_CLUSTER_REGION }}
+          elif [[ "$DEPLOYMENT_ENV" == "prod" ]]; then
+            echo "Setting up the Production environment..."
+            aws eks update-kubeconfig --name ${{ env.PROD_CLUSTER_NAME }} --region ${{ env.AWS_PROD_CLUSTER_REGION }}
+          else
+            echo "Deployment environment is neither test nor prod."
+          fi
+
+      - name: Install Helm
+        run: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+      - name: Clone Another Repository
+        uses: actions/checkout@v4
+        with:
+          repository: shibaone/deploy-engine
+          ref: main # Replace with the desired branch or tag
+          token: ${{ secrets.GH_PAT }}
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+      - name: List available helm charts
+        run: |
+          # List all folders/directories using the 'ls' command
+          ls -d */
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+      - name: Generate temp-values.yaml
+        run: |
+          echo "image:" > temp-values.yaml
+          echo "  tag: ${{ github.sha }}" >> temp-values.yaml
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+      - name: Deploy Helm Chart
+        run: |
+          helm upgrade --install shiba-token-frontend ./shiba-token-frontend --namespace shibatoken --create-namespace -f temp-values.yaml
+        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+
+  clean-up:
+    name: Clean Up
+    runs-on: ubuntu-latest
+    needs: build-and-test-deploy
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Clean Up Docker
+        run: make docker-clean
+
+      - name: Clean Up Binaries
+        run: make clean

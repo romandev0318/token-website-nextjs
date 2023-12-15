@@ -1,5 +1,5 @@
-DOCKER_IMAGE_NAME = shib-name-service
-DOCKER_CONTAINER_NAME = shib-name-service-container
+DOCKER_IMAGE_NAME = shiba-token-frontend
+DOCKER_CONTAINER_NAME = shiba-token-frontend-container
 
 # Default Docker image tag
 DEFAULT_TAG := latest
@@ -22,7 +22,7 @@ docker-build:
 docker-run:
 	docker run -d --name $(DOCKER_CONTAINER_NAME) -p 3000:3000 $(DOCKER_IMAGE_NAME)
 
-docker-stop:
+docker-clean:
 	docker stop $(DOCKER_CONTAINER_NAME) || true
 	docker rm $(DOCKER_CONTAINER_NAME) || true
 
