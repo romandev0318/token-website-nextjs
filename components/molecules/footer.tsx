@@ -3,9 +3,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Faq from 'react-faq-component';
 import ShibLogo from '../atoms/shibLogo';
+import Link from 'next/link';
 
 const Wrapper = styled.footer`
   background: rgba(20, 24, 36, 0.2);
+
+  a {
+    transition: all 0.3s;
+    &:hover {
+      color: #ef6402;
+    }
+  }
 `;
 
 const ContainerWrapper = styled.div`
@@ -97,29 +105,35 @@ const Footer = () => {
             <div className="text-[16px] font-[300]">Get connected with us on social networks:</div>
 
             <div className="flex items-center justify-center gap-3">
-              <Image
-                alt="pic"
-                src={'/icons/social/1.svg'}
-                width={32}
-                height={32}
-                objectFit="contain"
-              />
+              <Link href={'https://twitter.com/Shibtoken'} target="_blank">
+                <Image
+                  alt="pic"
+                  src={'/icons/social/1.svg'}
+                  width={32}
+                  height={32}
+                  objectFit="contain"
+                />
+              </Link>
 
-              <Image
-                alt="pic"
-                src={'/icons/social/2.svg'}
-                width={32}
-                height={32}
-                objectFit="contain"
-              />
+              <Link href={'https://t.me/ShibaInu_Dogecoinkiller'} target="_blank">
+                <Image
+                  alt="pic"
+                  src={'/icons/social/2.svg'}
+                  width={32}
+                  height={32}
+                  objectFit="contain"
+                />
+              </Link>
 
-              <Image
-                alt="pic"
-                src={'/icons/social/3.svg'}
-                width={32}
-                height={32}
-                objectFit="contain"
-              />
+              <Link href={'https://discord.com/invite/shibatoken'} target="_blank">
+                <Image
+                  alt="pic"
+                  src={'/icons/social/3.svg'}
+                  width={32}
+                  height={32}
+                  objectFit="contain"
+                />
+              </Link>
             </div>
           </div>
 
@@ -129,20 +143,48 @@ const Footer = () => {
 
           <div className="flex flex hidden w-1/3 flex-col items-start justify-start gap-3 text-[16px] font-[300] md:flex">
             <div className="text-[18px] font-bold">PRODUCTS</div>
-            <div>Shibarium Ecosystem</div>
-            <div>Shib The Metaverse</div>
-            <div>ShibaSwap</div>
-            <div>Shibacals</div>
-            <div>Shiba Eternity</div>
+
+            <Link href={'https://www.shibecosystem.com/'} target="_blank">
+              <div>Shibarium Ecosystem</div>
+            </Link>
+
+            <Link href={'https://shibaverse.io/'} target="_blank">
+              <div>Shib The Metaverse</div>
+            </Link>
+
+            <Link href={'https://shibaswap.com/#/'} target="_blank">
+              <div>ShibaSwap</div>
+            </Link>
+
+            <Link href={'https://www.shibacals.com/'} target="_blank">
+              <div>Shibacals</div>
+            </Link>
+
+            <Link href={'https://www.shibaeternity.games/'} target="_blank">
+              <div>Shiba Eternity</div>
+            </Link>
           </div>
 
           <div className="flex flex hidden w-1/3 flex-col items-start justify-start gap-3 text-[16px] font-[300] md:flex">
             <div className="text-[18px] font-bold">USEFUL LINKS</div>
-            <div>Shib Ecosystem</div>
-            <div>Shib.io Blog</div>
+
+            <Link href={'https://www.shibecosystem.com/'} target="_blank">
+              <div>Shibarium Ecosystem</div>
+            </Link>
+
+            <Link href={'https://blog.shib.io/'} target="_blank">
+              <div>Shib.io Blog</div>
+            </Link>
+
             <div>Foundational Document</div>
-            <div>Certik ShibaSwap Audit</div>
-            <div>Shiba Eternity Fandom</div>
+
+            <Link href={'https://skynet.certik.com/projects/shiba-swap'} target="_blank">
+              <div>Certik ShibaSwap Audit</div>
+            </Link>
+
+            <Link href={'https://shiba-eternity.fandom.com/'} target="_blank">
+              <div>Shiba Eternity Fandom</div>
+            </Link>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NormalButton, SectionWrapper } from '../../theme';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ParaItem = styled.div`
   padding: 30px 30px 30px 28px;
@@ -39,10 +40,12 @@ export const ShibariumSection = () => {
             </div>
 
             <div>
-              <NormalButton className="mobile:w-full">
-                Stake Bone
-                <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-              </NormalButton>
+              <Link href={'https://shibarium.shib.io/'} target="_blank">
+                <NormalButton className="mobile:w-full">
+                  Stake Bone
+                  <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+                </NormalButton>
+              </Link>
             </div>
           </ParaItem>
         </div>
@@ -67,10 +70,12 @@ export const ShibariumSection = () => {
             </div>
 
             <div>
-              <NormalButton className="mobile:w-full">
-                Shibarium Bridge
-                <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-              </NormalButton>
+              <Link href={'https://shibarium.shib.io/bridge'} target="_blank">
+                <NormalButton className="mobile:w-full">
+                  Shibarium Bridge
+                  <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+                </NormalButton>
+              </Link>
             </div>
           </ParaItem>
         </div>

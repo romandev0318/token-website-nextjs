@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { NormalButton, SectionWrapper } from '../../theme';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -63,10 +64,12 @@ export const MagazineSection = () => {
         </ImageWrapper>
       </div>
 
-      <NormalButton className="shadow">
-        Visit The Shib
-        <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-      </NormalButton>
+      <Link href={'http://name.shib.io/'} target="_blank">
+        <NormalButton className="shadow">
+          Visit The Shib
+          <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+        </NormalButton>
+      </Link>
     </SectionWrapper>
   );
 };

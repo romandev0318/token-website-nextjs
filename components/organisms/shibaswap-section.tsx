@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { NormalButton, SectionWrapper } from '../../theme';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const Wrapper = styled.div`
   @media (max-width: 850px) {
@@ -18,6 +19,11 @@ const ItemWrapper = styled.div`
   border-radius: 24px;
   border: 1px solid #202740;
   background: #1a1f2e;
+  transition: all 0.3s;
+
+  &:hover {
+    border: 1px solid #737373;
+  }
 `;
 
 export const ShibaSwapSection = () => {
@@ -71,10 +77,12 @@ export const ShibaSwapSection = () => {
           </ItemWrapper>
 
           <div className="flex w-full items-center justify-start mobile:justify-center">
-            <NormalButton className="shadow">
-              Go to Shibaswap
-              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-            </NormalButton>
+            <Link href={'https://shibaswap.com/#/'} target="_blank">
+              <NormalButton className="shadow">
+                Go to Shibaswap
+                <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+              </NormalButton>
+            </Link>
           </div>
         </div>
 
@@ -89,10 +97,12 @@ export const ShibaSwapSection = () => {
             src={'/images/certik-logo.svg'}
           />
 
-          <NormalButton>
-            Audit Overview
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </NormalButton>
+          <Link href={'https://skynet.certik.com/projects/shiba-swap'} target="_blank">
+            <NormalButton>
+              Audit Overview
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </NormalButton>
+          </Link>
         </div>
       </Wrapper>
     </SectionWrapper>

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import ShibLogo from '../atoms/shibLogo';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const MenuBtn = styled.div`
   font-size: 18px;
@@ -60,14 +61,45 @@ const Navbar = () => {
 
         <LinkWrapper className="relative">
           <div className="desktop flex items-center justify-center md:gap-4 lg:gap-6 xl:gap-12">
-            <MenuBtn>Shib.io</MenuBtn>
-            <MenuBtn>ShibaSwap</MenuBtn>
-            <MenuBtn>Shib Ecosystem</MenuBtn>
-            <MenuBtn>Shibarium</MenuBtn>
-            <MenuBtn>Ryoshi Archives</MenuBtn>
+            <Link href={`https://www.shib.io/`} target="_blank">
+              <MenuBtn>Shib.io</MenuBtn>
+            </Link>
+
+            <Link href={'https://shibaswap.com/#/'} target="_blank">
+              <MenuBtn>ShibaSwap</MenuBtn>
+            </Link>
+
+            <Link href={'https://www.shibecosystem.com/'} target="_blank">
+              <MenuBtn>Shib Ecosystem</MenuBtn>
+            </Link>
+
+            <Link href={'https://shibarium.shib.io/'} target="_blank">
+              <MenuBtn>Shibarium</MenuBtn>
+            </Link>
+
+            <Link
+              href={
+                'https://assets-global.website-files.com/6424006598e25f12a6360e93/6425c40b662f5690cb62e831_Ryoshi_Article.pdf'
+              }
+              target="_blank"
+            >
+              <MenuBtn>Ryoshi Archives</MenuBtn>
+            </Link>
+
             <MenuBtn>Advertise with us</MenuBtn>
-            <MenuBtn>Safety Guide</MenuBtn>
-            <MenuBtn>Shibpedia</MenuBtn>
+
+            <Link
+              href={
+                'https://assets-global.website-files.com/6424006598e25f12a6360e93/6425c5484385fb3e0dd6821f_Shiba_Inu_Safe_Guarding_Guide.pdf'
+              }
+              target="_blank"
+            >
+              <MenuBtn>Safety Guide</MenuBtn>
+            </Link>
+
+            <Link href={'https://docs.shibatoken.com/'} target="_blank">
+              <MenuBtn>Shibpedia</MenuBtn>
+            </Link>
           </div>
 
           <button className="menuBtn" onClick={() => setShowDropDown(prev => !prev)}>

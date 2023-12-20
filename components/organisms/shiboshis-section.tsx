@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { NormalButton, SectionWrapper } from '../../theme';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Wrapper = styled.div`
   background:
@@ -41,12 +42,16 @@ export const ShiboshisSection = () => {
             and unique benefits.`}
           </div>
 
-          <NormalButton>
-            Shiboshis Collection
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </NormalButton>
+          <Link href={'https://opensea.io/collection/theshiboshis'} target="_blank">
+            <NormalButton>
+              Shiboshis Collection
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </NormalButton>
+          </Link>
 
-          <BuyButton>Buy on Opensea</BuyButton>
+          <Link href={'https://opensea.io/collection/theshiboshis'} target="_blank">
+            <BuyButton>Buy on Opensea</BuyButton>
+          </Link>
         </div>
       </SectionWrapper>
     </Wrapper>
