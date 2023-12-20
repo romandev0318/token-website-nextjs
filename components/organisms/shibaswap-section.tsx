@@ -37,44 +37,50 @@ export const ShibaSwapSection = () => {
             <div className="text-[18px]">Decentralized Exchange</div>
           </div>
 
-          <ItemWrapper>
-            <div className="flex items-center justify-center gap-2">
-              <Image alt="pic" width={64} height={64} src={'/images/bury-logo.svg'} />
+          <Link href={'https://shibaswap.com/#/bury'} target="_blank" className="w-full">
+            <ItemWrapper>
+              <div className="flex items-center justify-center gap-2">
+                <Image alt="pic" width={64} height={64} src={'/images/bury-logo.svg'} />
 
-              <div className="flex flex-col items-start justify-center gap-1">
-                <div className="text-[18px] font-bold">Bury</div>
-                <div className="text-[16px] text-[#D9D9D9]">Stake and Earn Rewards</div>
+                <div className="flex flex-col items-start justify-center gap-1">
+                  <div className="text-[18px] font-bold">Bury</div>
+                  <div className="text-[16px] text-[#D9D9D9]">Stake and Earn Rewards</div>
+                </div>
               </div>
-            </div>
 
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </ItemWrapper>
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </ItemWrapper>
+          </Link>
 
-          <ItemWrapper>
-            <div className="flex items-center justify-center gap-2">
-              <Image alt="pic" width={64} height={64} src={'/images/swap-logo.svg'} />
+          <Link href={'https://shibaswap.com/#/swap'} target="_blank" className="w-full">
+            <ItemWrapper>
+              <div className="flex items-center justify-center gap-2">
+                <Image alt="pic" width={64} height={64} src={'/images/swap-logo.svg'} />
 
-              <div className="flex flex-col items-start justify-center gap-1">
-                <div className="text-[18px] font-bold">Swap</div>
-                <div className="text-[16px] text-[#D9D9D9]">Between tokens</div>
+                <div className="flex flex-col items-start justify-center gap-1">
+                  <div className="text-[18px] font-bold">Swap</div>
+                  <div className="text-[16px] text-[#D9D9D9]">Between tokens</div>
+                </div>
               </div>
-            </div>
 
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </ItemWrapper>
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </ItemWrapper>
+          </Link>
 
-          <ItemWrapper>
-            <div className="flex items-center justify-center gap-2">
-              <Image alt="pic" width={64} height={64} src={'/images/dig-logo.svg'} />
+          <Link href={'https://shibaswap.com/#/pool'} target="_blank" className="w-full">
+            <ItemWrapper>
+              <div className="flex items-center justify-center gap-2">
+                <Image alt="pic" width={64} height={64} src={'/images/dig-logo.svg'} />
 
-              <div className="flex flex-col items-start justify-center gap-1">
-                <div className="text-[18px] font-bold">DIG</div>
-                <div className="text-[16px] text-[#D9D9D9]">Stake Tokens</div>
+                <div className="flex flex-col items-start justify-center gap-1">
+                  <div className="text-[18px] font-bold">DIG</div>
+                  <div className="text-[16px] text-[#D9D9D9]">Stake Tokens</div>
+                </div>
               </div>
-            </div>
 
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </ItemWrapper>
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </ItemWrapper>
+          </Link>
 
           <div className="flex w-full items-center justify-start mobile:justify-center">
             <Link href={'https://shibaswap.com/#/'} target="_blank">

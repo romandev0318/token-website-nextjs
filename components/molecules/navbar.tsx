@@ -86,7 +86,9 @@ const Navbar = () => {
               <MenuBtn>Ryoshi Archives</MenuBtn>
             </Link>
 
-            <MenuBtn>Advertise with us</MenuBtn>
+            <Link href={'https://www.shib.io/contactus'} target="_blank">
+              <MenuBtn>Advertise with us</MenuBtn>
+            </Link>
 
             <Link
               href={
@@ -117,14 +119,47 @@ const Navbar = () => {
           showDropDown ? 'h-[344px] p-2' : 'h-0 p-0'
         } flex flex-col items-center justify-center gap-4 bg-[#060811]`}
       >
-        <MenuBtn>Shib.io</MenuBtn>
-        <MenuBtn>ShibaSwap</MenuBtn>
-        <MenuBtn>Shib Ecosystem</MenuBtn>
-        <MenuBtn>Shibarium</MenuBtn>
-        <MenuBtn>Ryoshi Archives</MenuBtn>
-        <MenuBtn>Advertise with us</MenuBtn>
-        <MenuBtn>Safety Guide</MenuBtn>
-        <MenuBtn>Shibpedia</MenuBtn>
+        <Link href={`https://www.shib.io/`} target="_blank">
+          <MenuBtn>Shib.io</MenuBtn>
+        </Link>
+
+        <Link href={'https://shibaswap.com/#/'} target="_blank">
+          <MenuBtn>ShibaSwap</MenuBtn>
+        </Link>
+
+        <Link href={'https://www.shibecosystem.com/'} target="_blank">
+          <MenuBtn>Shib Ecosystem</MenuBtn>
+        </Link>
+
+        <Link href={'https://shibarium.shib.io/'} target="_blank">
+          <MenuBtn>Shibarium</MenuBtn>
+        </Link>
+
+        <Link
+          href={
+            'https://assets-global.website-files.com/6424006598e25f12a6360e93/6425c40b662f5690cb62e831_Ryoshi_Article.pdf'
+          }
+          target="_blank"
+        >
+          <MenuBtn>Ryoshi Archives</MenuBtn>
+        </Link>
+
+        <Link href={'https://www.shib.io/contactus'} target="_blank">
+          <MenuBtn>Advertise with us</MenuBtn>
+        </Link>
+
+        <Link
+          href={
+            'https://assets-global.website-files.com/6424006598e25f12a6360e93/6425c5484385fb3e0dd6821f_Shiba_Inu_Safe_Guarding_Guide.pdf'
+          }
+          target="_blank"
+        >
+          <MenuBtn>Safety Guide</MenuBtn>
+        </Link>
+
+        <Link href={'https://docs.shibatoken.com/'} target="_blank">
+          <MenuBtn>Shibpedia</MenuBtn>
+        </Link>
       </DropDownMenu>
     </nav>
   );

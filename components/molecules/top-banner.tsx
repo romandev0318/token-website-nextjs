@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -36,10 +37,12 @@ export const TopBanner = () => {
       <div className="w-full max-w-[1780px] px-8 mobile:px-2">
         <div className="relative flex items-center justify-center gap-2 mobile:flex-col mobile:gap-0">
           Latest edition of The Shib Magazine
-          <ReadBtn className="flex items-center justify-center gap-2">
-            Read Now
-            <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
-          </ReadBtn>
+          <Link href={'http://news.shib.io/'} target="_blank">
+            <ReadBtn className="flex items-center justify-center gap-2">
+              Read Now
+              <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
+            </ReadBtn>
+          </Link>
           <CloseBtn className="flex items-center justify-center" onClick={onClose}>
             <Image alt="close" width={24} height={24} src={'/icons/close-filled-circle.svg'} />
           </CloseBtn>

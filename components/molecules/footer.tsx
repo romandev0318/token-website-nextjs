@@ -52,11 +52,25 @@ const footerMenuData = {
       title: `PRODUCTS`,
       content: (
         <div className="flex flex-col items-start justify-center gap-2">
-          <div>Shibarium Ecosystem</div>
-          <div>Shib The Metaverse</div>
-          <div>ShibaSwap</div>
-          <div>Shibacals</div>
-          <div>Shiba Eternity</div>
+          <Link href={'https://www.shibecosystem.com/'} target="_blank">
+            <div>Shibarium Ecosystem</div>
+          </Link>
+
+          <Link href={'https://shibaverse.io/'} target="_blank">
+            <div>Shib The Metaverse</div>
+          </Link>
+
+          <Link href={'https://shibaswap.com/#/'} target="_blank">
+            <div>ShibaSwap</div>
+          </Link>
+
+          <Link href={'https://www.shibacals.com/'} target="_blank">
+            <div>Shibacals</div>
+          </Link>
+
+          <Link href={'https://www.shibaeternity.games/'} target="_blank">
+            <div>Shiba Eternity</div>
+          </Link>
           <div className="relative h-[10px]"></div>
         </div>
       ),
@@ -65,11 +79,25 @@ const footerMenuData = {
       title: `USEFUL LINKS`,
       content: (
         <div className="flex flex-col items-start justify-center gap-2">
-          <div>Shib Ecosystem</div>
-          <div>Shib.io Blog</div>
-          <div>Foundational Document</div>
-          <div>Certik ShibaSwap Audit</div>
-          <div>Shiba Eternity Fandom</div>
+          <Link href={'https://www.shibecosystem.com/'} target="_blank">
+            <div>Shibarium Ecosystem</div>
+          </Link>
+
+          <Link href={'https://blog.shib.io/'} target="_blank">
+            <div>Shib.io Blog</div>
+          </Link>
+
+          <Link href={'https://blog.shib.io/shibarium-the-foundational-blog/'} target="_blank">
+            <div>Foundational Document</div>
+          </Link>
+
+          <Link href={'https://skynet.certik.com/projects/shiba-swap'} target="_blank">
+            <div>Certik ShibaSwap Audit</div>
+          </Link>
+
+          <Link href={'https://shiba-eternity.fandom.com/'} target="_blank">
+            <div>Shiba Eternity Fandom</div>
+          </Link>
           <div className="relative h-[10px]"></div>
         </div>
       ),
@@ -176,7 +204,9 @@ const Footer = () => {
               <div>Shib.io Blog</div>
             </Link>
 
-            <div>Foundational Document</div>
+            <Link href={'https://blog.shib.io/shibarium-the-foundational-blog/'} target="_blank">
+              <div>Foundational Document</div>
+            </Link>
 
             <Link href={'https://skynet.certik.com/projects/shiba-swap'} target="_blank">
               <div>Certik ShibaSwap Audit</div>
