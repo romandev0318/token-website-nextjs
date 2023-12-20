@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const SectionWrapper = styled.div`
-  max-width: 1920px;
-  padding: 64px 78px;
+  max-width: 1780px;
+  padding: 64px 2rem;
+
+  @media (max-width: 960px) {
+    padding: 48px 1rem;
+  }
 `;
 
 export const NormalButton = styled.button`

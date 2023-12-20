@@ -7,6 +7,14 @@ const Wrapper = styled.div`
   border-radius: 32px;
   border: 1px solid #202740;
   background: rgba(26, 31, 46, 0.9);
+
+  @media (max-width: 1280px) {
+    padding: 16px;
+  }
+
+  @media (max-width: 960px) {
+    padding: 32px;
+  }
 `;
 
 const TOKEN_INFO = {
@@ -42,15 +50,19 @@ export const ShibTokenItem = ({ type }: ShibTokenItemProps) => {
   const tokenInfo = TOKEN_INFO[type as keyof typeof TOKEN_INFO];
 
   return (
-    <div className="w-1/3 px-4">
+    <div className="w-[650px] max-w-[90vw] px-2 mobile:p-0 md:w-1/3 lg:px-4">
       <Wrapper className="flex w-full flex-col items-center justify-center">
-        <div className="flex items-center justify-center gap-8">
+        <div className="flex items-center justify-center gap-8 mobile:flex-col mobile:gap-2">
           <Image alt="tokenPic" width={118} height={127} src={tokenInfo.imageURL} />
 
           <div className="text-[24px] font-bold">{tokenInfo.tokenName}</div>
         </div>
 
-        <div className="h-[120px] text-[16px] font-[300]">{tokenInfo.description}</div>
+        <div className="relative h-[1px] w-full bg-[#202740]" />
+
+        <div className="text-[16px] font-[300] md:h-[190px] lg:h-[165px] xl:h-[120px]">
+          {tokenInfo.description}
+        </div>
 
         <div className="flex w-full flex-col items-center justify-center gap-4">
           <div className="flex h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#FF7A1C] text-[16px]">

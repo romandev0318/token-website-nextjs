@@ -18,8 +18,8 @@ export const ShibariumSection = () => {
         <div className="text-[18px]">{`Shib's L2 Blockchain`}</div>
       </div>
 
-      <div className="flex items-center justify-center">
-        <div className="w-1/2 p-2">
+      <div className="flex flex-wrap items-center justify-center">
+        <div className="w-full p-2 md:w-1/2">
           <ParaItem className="flex flex-col">
             <div className="flex items-center justify-start gap-2">
               <Image alt="pic" src={'/icons/stake.svg'} width={64} height={64} />
@@ -32,14 +32,14 @@ export const ShibariumSection = () => {
 
             <div className="relative h-[1px] w-full bg-[#202740]" />
 
-            <div className="text-[16px] font-[300] text-[#ECECEC]">
+            <div className="h-auto text-[16px] font-[300] text-[#ECECEC] md:h-[120px] lg:h-[80px]">
               {`Stake your BONE tokens to support network security and earn rewards. As a Delegator,
               you indirectly contribute to consensus by backing Validators, gaining from the
               ecosystem's success.`}
             </div>
 
             <div>
-              <NormalButton>
+              <NormalButton className="mobile:w-full">
                 Stake Bone
                 <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
               </NormalButton>
@@ -47,7 +47,7 @@ export const ShibariumSection = () => {
           </ParaItem>
         </div>
 
-        <div className="w-1/2 p-2">
+        <div className="w-full p-2 md:w-1/2">
           <ParaItem className="flex flex-col">
             <div className="flex items-center justify-start gap-2">
               <Image alt="pic" src={'/icons/bridge.svg'} width={64} height={64} />
@@ -60,14 +60,14 @@ export const ShibariumSection = () => {
 
             <div className="relative h-[1px] w-full bg-[#202740]" />
 
-            <div className="text-[16px] font-[300] text-[#ECECEC]">
+            <div className="h-auto text-[16px] font-[300] text-[#ECECEC] md:h-[120px] lg:h-[80px]">
               Collect majestic cards to create your perfect deck, then train with your unique
               Shiboshis to defeat all your friends and foes alike in this collectible card game now
               available on iOS and Android stores.
             </div>
 
             <div>
-              <NormalButton>
+              <NormalButton className="mobile:w-full">
                 Shibarium Bridge
                 <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
               </NormalButton>

@@ -18,6 +18,13 @@ const Wrapper = styled.div`
   .middle-text {
     text-shadow: 7px 25px 25px rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: 1024px) {
+    height: auto;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+  }
 `;
 
 export const AdsBanner = () => {
@@ -26,7 +33,7 @@ export const AdsBanner = () => {
       <Wrapper className="relative flex w-full items-center justify-center gap-[64px]">
         <Image alt="logo1" width={137} height={135} src={'/images/cursor-shib-logo.svg'} />
 
-        <p className="middle-text text-[40px] font-bold">
+        <p className="middle-text text-[40px] font-bold leading-[48px] mobile:text-[36px]">
           REACH THOUSANDS OF <br />{' '}
           <span className="text-[40px] font-bold text-[#FF7A1C]"> MONTHLY USERS </span>
           <br /> WITH OUR MAGAZINE

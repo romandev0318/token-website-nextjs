@@ -7,7 +7,7 @@ interface ShibLogoProps {
 
 const ShibLogo = ({ className }: ShibLogoProps) => {
   return (
-    <Link href="/" className="flex items-center gap-4 text-[32px] font-bold text-white">
+    <Link href="/" className="flex items-center gap-4 text-[24px] font-bold text-white">
       <Image
         width={50}
         height={60}

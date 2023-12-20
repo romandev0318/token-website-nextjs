@@ -15,9 +15,11 @@ const PageLayout = ({ children }: LayoutProps) => {
   return (
     // <div className="container m-auto">
     <main className="h-full flex-grow">
-      <TopBanner />
+      <div className="fixed top-0 z-[99] w-full">
+        <TopBanner />
 
-      <Navbar />
+        <Navbar />
+      </div>
 
       {children}
 

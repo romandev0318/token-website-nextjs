@@ -1,49 +1,66 @@
 import Image from 'next/image';
 import { NormalButton, SectionWrapper } from '../../theme';
+import styled from 'styled-components';
+
+const ImageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+`;
 
 export const MagazineSection = () => {
   return (
     <SectionWrapper className="flex w-full flex-col items-center justify-center gap-[58px]">
-      <div className="w-full text-[40px] font-bold">Latest Magazine Editions</div>
+      <div className="w-full text-center text-[40px] font-bold md:text-left">
+        Latest Magazine Editions
+      </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <div className="flex flex-wrap items-center justify-center gap-4">
+      <div className="flex w-full flex-wrap items-center justify-center">
+        <ImageWrapper className="w-1/2 mobile:w-full md:w-1/4">
           <Image
             alt="pic"
             src={'/images/magazine/1.png'}
             width={428}
             height={558}
             objectFit="contain"
-            className="max-w-[90%]"
+            className="w-full max-w-[95%]"
           />
+        </ImageWrapper>
+
+        <ImageWrapper className="w-1/2 mobile:w-full md:w-1/4">
           <Image
             alt="pic"
             src={'/images/magazine/2.png'}
             width={428}
             height={558}
             objectFit="contain"
-            className="max-w-[90%]"
+            className="w-full max-w-[95%]"
           />
-        </div>
+        </ImageWrapper>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <ImageWrapper className="w-1/2 mobile:w-full md:w-1/4">
           <Image
             alt="pic"
             src={'/images/magazine/3.png'}
             width={428}
             height={558}
             objectFit="contain"
-            className="max-w-[90%]"
+            className="w-full max-w-[95%]"
           />
+        </ImageWrapper>
+
+        <ImageWrapper className="w-1/2 mobile:w-full md:w-1/4">
           <Image
             alt="pic"
             src={'/images/magazine/4.png'}
             width={428}
             height={558}
             objectFit="contain"
-            className="max-w-[90%]"
+            className="w-full max-w-[95%]"
           />
-        </div>
+        </ImageWrapper>
       </div>
 
       <NormalButton className="shadow">

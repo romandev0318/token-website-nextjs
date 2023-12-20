@@ -19,8 +19,20 @@ const BuyButton = styled(NormalButton)`
 export const ShiboshisSection = () => {
   return (
     <Wrapper className="flex w-full items-center justify-center">
-      <SectionWrapper className="flex w-full items-center justify-center">
-        <div className="flex w-1/2 flex-col items-center justify-center gap-4">
+      <SectionWrapper className="flex w-full flex-row-reverse flex-wrap items-center justify-center">
+        <div className="flex w-full items-center justify-center gap-4 px-2 md:w-1/2">
+          <div className="flex flex-col items-center justify-center gap-4 pb-8">
+            <Image alt="pic" src={'/images/shiboshis/4.png'} width={241} height={241} />
+            <Image alt="pic" src={'/images/shiboshis/3.png'} width={241} height={241} />
+          </div>
+
+          <div className="flex flex-col items-center justify-center gap-4 pt-8">
+            <Image alt="pic" src={'/images/shiboshis/1.png'} width={241} height={241} />
+            <Image alt="pic" src={'/images/shiboshis/2.png'} width={241} height={241} />
+          </div>
+        </div>
+
+        <div className="flex w-full flex-col items-center justify-center gap-4 px-2 md:w-1/2">
           <Image alt="pic" src={'/images/shiboshis-logo.png'} width={412} height={157} />
 
           <div className="text-center text-[16px] text-[#ECECEC]">
@@ -35,18 +47,6 @@ export const ShiboshisSection = () => {
           </NormalButton>
 
           <BuyButton>Buy on Opensea</BuyButton>
-        </div>
-
-        <div className="flex w-1/2 items-center justify-center gap-4">
-          <div className="flex flex-col items-center justify-center gap-4 pb-8">
-            <Image alt="pic" src={'/images/shiboshis/4.png'} width={241} height={241} />
-            <Image alt="pic" src={'/images/shiboshis/3.png'} width={241} height={241} />
-          </div>
-
-          <div className="flex flex-col items-center justify-center gap-4 pt-8">
-            <Image alt="pic" src={'/images/shiboshis/1.png'} width={241} height={241} />
-            <Image alt="pic" src={'/images/shiboshis/2.png'} width={241} height={241} />
-          </div>
         </div>
       </SectionWrapper>
     </Wrapper>
