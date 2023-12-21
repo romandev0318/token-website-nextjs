@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const SectionWrapper = styled.div`
-  max-width: 1500px;
-  padding: 64px 2rem;
+  max-width: 1780px;
+  padding: 64px 140px;
+
+  @media (max-width: 1188px) {
+    padding: 56px 2rem;
+  }
 
   @media (max-width: 960px) {
     padding: 48px 1rem;

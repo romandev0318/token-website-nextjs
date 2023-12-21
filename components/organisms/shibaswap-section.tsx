@@ -98,7 +98,7 @@ export const ShibaSwapSection = () => {
         </div>
 
         <div className="flex w-full flex-col items-center justify-start gap-[24px] px-2 md:w-1/2">
-          <div className="mobile:text-[36px]">Audited by Certik</div>
+          <div className="text-center mobile:text-[36px]">Audited by Certik</div>
 
           <Image
             alt="certiklogo"

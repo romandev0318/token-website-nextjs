@@ -17,7 +17,7 @@ const Wrapper = styled.footer`
 `;
 
 const ContainerWrapper = styled.div`
-  max-width: 1500px;
+  max-width: 1780px;
   padding: 2rem 2rem;
 `;
 

@@ -6,16 +6,20 @@ const Wrapper = styled.div`
   gap: 48px;
   background: url('/images/hero-back.png');
   background-size: cover;
-  background-position: top;
+  background-position: top right;
   background-repeat: no-repeat;
   width: 100%;
   min-height: 100vh;
+
+  @media (max-width: 960px) {
+    background-position: top;
+  }
 `;
 
 export const HeroSection = () => {
   return (
     <Wrapper className="relative flex flex-col items-center justify-end">
-      <div className="relative h-[350px] w-full mobile:h-[50px]" />
+      <div className="relative h-[77px] w-full mobile:h-[50px]" />
       <SectionWrapper className="relative flex flex-col items-center justify-end gap-[48px]">
         <div className="text-center text-[60px] font-bold mobile:mt-12 mobile:text-[48px]">
           Shiba Inu Tokens

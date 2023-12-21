@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <nav className="relative flex h-[77px] w-full items-center justify-center bg-[#060811]">
-      <div className="flex w-full max-w-[1500px] items-center justify-between px-8 py-2 mobile:px-4">
+      <div className="flex w-full max-w-[1780px] items-center justify-between px-8 py-2 mobile:px-4">
         <ShibLogo />
 
         <LinkWrapper className="relative">
