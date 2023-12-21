@@ -14,8 +14,13 @@ export function setupTracking() {
       localStorage.setItem('user_tracking_id', userTrackingId);
     }
     if (!analyticsIstance) {
-      const clientId = 'sns-id';
-      const sessionId = 'session-id';
+      const clientId = 'shibatoken-id';
+      let sessionId: string | null = sessionStorage.getItem('session_id');
+
+      if (!sessionId) {
+        sessionId = uuidv4();
+        sessionStorage.setItem('session_id', sessionId);
+      }
       const userProperties = {
         user_tracking_id: userTrackingId,
       } as any;
