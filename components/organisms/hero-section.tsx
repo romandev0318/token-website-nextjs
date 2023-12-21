@@ -14,10 +14,11 @@ const Wrapper = styled.div`
 
 export const HeroSection = () => {
   return (
-    <Wrapper className="relative mt-[77px] flex flex-col items-center justify-end">
+    <Wrapper className="relative flex flex-col items-center justify-end">
+      <div className="relative h-[350px] w-full mobile:h-[50px]" />
       <SectionWrapper className="relative flex flex-col items-center justify-end gap-[48px]">
-        <div className="text-center text-[60px] font-bold mobile:mt-12 mobile:text-[50px]">
-          Shib Tokens
+        <div className="text-center text-[60px] font-bold mobile:mt-12 mobile:text-[48px]">
+          Shiba Inu Tokens
         </div>
 
         <div className="flex flex-col items-start justify-center gap-4 md:flex-row md:gap-0">

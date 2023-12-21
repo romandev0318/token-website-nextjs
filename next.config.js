@@ -7,7 +7,11 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['shib-token.s3.eu-central-1.amazonaws.com'],
+    domains: [
+      'shib-token.s3.eu-central-1.amazonaws.com',
+      'the-shib.ghost.io',
+      'shib.mypinata.cloud',
+    ],
   },
 };
 

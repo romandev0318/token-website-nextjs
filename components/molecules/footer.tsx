@@ -17,7 +17,7 @@ const Wrapper = styled.footer`
 `;
 
 const ContainerWrapper = styled.div`
-  max-width: 1780px;
+  max-width: 1500px;
   padding: 2rem 2rem;
 `;
 
@@ -56,7 +56,7 @@ const footerMenuData = {
             <div>Shibarium Ecosystem</div>
           </Link>
 
-          <Link href={'https://shibaverse.io/'} target="_blank">
+          <Link href={'http://shibthemetaverse.io/'} target="_blank">
             <div>Shib The Metaverse</div>
           </Link>
 
@@ -176,7 +176,7 @@ const Footer = () => {
               <div>Shibarium Ecosystem</div>
             </Link>
 
-            <Link href={'https://shibaverse.io/'} target="_blank">
+            <Link href={'http://shibthemetaverse.io/'} target="_blank">
               <div>Shib The Metaverse</div>
             </Link>
 

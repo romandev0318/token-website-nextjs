@@ -34,7 +34,7 @@ export const TopBanner = () => {
         !active ? `h-0 opacity-0` : `h-[48px]`
       } w-full items-center justify-center`}
     >
-      <div className="w-full max-w-[1780px] px-8 mobile:px-2">
+      <div className="w-full max-w-[1500px] px-8 mobile:px-2">
         <div className="relative flex items-center justify-center gap-2 mobile:flex-col mobile:gap-0">
           Latest edition of The Shib Magazine
           <Link href={'http://news.shib.io/'} target="_blank">

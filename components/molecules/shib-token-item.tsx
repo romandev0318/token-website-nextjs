@@ -15,6 +15,8 @@ const Wrapper = styled.div`
 
   @media (max-width: 960px) {
     padding: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 `;
 
@@ -77,7 +79,9 @@ export const ShibTokenItem = ({ type }: ShibTokenItemProps) => {
             href={tokenInfo.shibaswapURL}
             className="flex h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#FF7A1C] text-[16px]"
           >
-            Buy on SHIBASWAP
+            <div>
+              Buy <span className="uppercase">{type}</span> on SHIBASWAP
+            </div>
             <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
           </Link>
 
@@ -86,7 +90,9 @@ export const ShibTokenItem = ({ type }: ShibTokenItemProps) => {
             href={tokenInfo.coingeckoURL}
             className="flex h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#8BC53F] text-[16px]"
           >
-            View on Coingecko
+            <div>
+              View <span className="uppercase">{type}</span> on Coingecko
+            </div>
             <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
           </Link>
         </div>

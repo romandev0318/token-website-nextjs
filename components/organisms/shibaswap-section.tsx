@@ -24,6 +24,11 @@ const ItemWrapper = styled.div`
   &:hover {
     border: 1px solid #737373;
   }
+
+  @media (max-width: 500px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const ShibaSwapSection = () => {
@@ -38,7 +43,7 @@ export const ShibaSwapSection = () => {
           </div>
 
           <Link href={'https://shibaswap.com/#/bury'} target="_blank" className="w-full">
-            <ItemWrapper>
+            <ItemWrapper className="mobile:px-4">
               <div className="flex items-center justify-center gap-2">
                 <Image alt="pic" width={64} height={64} src={'/images/bury-logo.svg'} />
 

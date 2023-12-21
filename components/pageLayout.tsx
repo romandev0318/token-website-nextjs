@@ -13,13 +13,14 @@ interface LayoutProps {
 
 const PageLayout = ({ children }: LayoutProps) => {
   return (
-    // <div className="container m-auto">
     <main className="h-full flex-grow">
       <div className="fixed top-0 z-[99] w-full">
         <TopBanner />
 
         <Navbar />
       </div>
+
+      <div className="relative h-[77px] w-full" />
 
       {children}
 
@@ -39,7 +40,6 @@ const PageLayout = ({ children }: LayoutProps) => {
         theme="dark"
       />
     </main>
-    // </div>
   );
 };
 
