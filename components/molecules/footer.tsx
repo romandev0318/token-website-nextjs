@@ -65,7 +65,7 @@ const footerMenuData = {
           </Link>
 
           <Link href={'https://www.shibacals.com/'} target="_blank">
-            <div>Shibacals</div>
+            <div>Shibacals</div>  
           </Link>
 
           <Link href={'https://www.shibaeternity.games/'} target="_blank">
@@ -79,8 +79,8 @@ const footerMenuData = {
       title: `USEFUL LINKS`,
       content: (
         <div className="flex flex-col items-start justify-center gap-2">
-          <Link href={'https://www.shibecosystem.com/'} target="_blank">
-            <div>Shibarium Ecosystem</div>
+          <Link href={'https://shibarium.shib.io/'} target="_blank">
+            <div>Shibarium</div>
           </Link>
 
           <Link href={'https://blog.shib.io/'} target="_blank">
@@ -172,8 +172,8 @@ const Footer = () => {
           <div className="flex flex hidden w-1/3 flex-col items-start justify-start gap-3 text-[16px] font-[300] md:flex">
             <div className="text-[18px] font-bold">PRODUCTS</div>
 
-            <Link href={'https://www.shibecosystem.com/'} target="_blank">
-              <div>Shibarium Ecosystem</div>
+            <Link href={'https://shibarium.shib.io/'} target="_blank">
+              <div>Shibarium</div>
             </Link>
 
             <Link href={'http://shibthemetaverse.io/'} target="_blank">
@@ -196,8 +196,8 @@ const Footer = () => {
           <div className="flex flex hidden w-1/3 flex-col items-start justify-start gap-3 text-[16px] font-[300] md:flex">
             <div className="text-[18px] font-bold">USEFUL LINKS</div>
 
-            <Link href={'https://www.shibecosystem.com/'} target="_blank">
-              <div>Shibarium Ecosystem</div>
+            <Link href={'https://shibarium.shib.io/'} target="_blank">
+              <div>Shibarium</div>
             </Link>
 
             <Link href={'https://blog.shib.io/'} target="_blank">
