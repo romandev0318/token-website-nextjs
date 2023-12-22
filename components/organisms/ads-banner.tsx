@@ -48,7 +48,7 @@ export const AdsBanner = () => {
             <Image alt="logo2" width={200} height={38} src={'/images/theshib-logo.svg'} />
 
             <NormalButton>
-              Ads Packages
+              Ad Enquiry
               <Image alt="arrow-right" width={24} height={24} src={'/icons/arrow-right.svg'} />
             </NormalButton>
           </div>

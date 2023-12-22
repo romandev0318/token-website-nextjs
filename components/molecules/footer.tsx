@@ -52,8 +52,8 @@ const footerMenuData = {
       title: `PRODUCTS`,
       content: (
         <div className="flex flex-col items-start justify-center gap-2">
-          <Link href={'https://www.shibecosystem.com/'} target="_blank">
-            <div>Shibarium Ecosystem</div>
+          <Link href={'https://shibarium.shib.io/'} target="_blank">
+            <div>Shibarium</div>
           </Link>
 
           <Link href={'http://shibthemetaverse.io/'} target="_blank">
