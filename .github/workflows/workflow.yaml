@@ -173,14 +173,27 @@ jobs:
           ls -d */
         if: success() && steps.check_tag.outputs.isTagPush == 'true'
 
-      - name: Generate temp-values.yaml
+      - name: Generate Test temp-values.yaml
         run: |
           echo "image:" > temp-values.yaml
           echo "  tag: ${{ github.sha }}" >> temp-values.yaml
+          echo "environment:" >> temp-values.yaml
+          echo "   production: false" >> temp-values.yaml
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: success() && steps.check_tag.outputs.isTagPush == 'true'
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true' && steps.check_deployment_environment.outputs.deploymentEnv == 'test'
+
+      - name: Generate Production temp-values.yaml
+        run: |
+          echo "image:" > temp-values.yaml
+          echo "  tag: ${{ github.sha }}" >> temp-values.yaml
+          echo "environment:" >> temp-values.yaml
+          echo "   production: true" >> temp-values.yaml
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: success() && steps.check_tag.outputs.isTagPush == 'true' && steps.check_if_test_or_prod.outputs.isTagProdOrTest == 'true' && steps.check_deployment_environment.outputs.deploymentEnv == 'prod'
 
       - name: Deploy Helm Chart
         run: |
