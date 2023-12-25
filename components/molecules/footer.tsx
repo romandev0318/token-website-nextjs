@@ -196,10 +196,6 @@ const Footer = () => {
           <div className="flex flex hidden w-1/3 flex-col items-start justify-start gap-3 text-[16px] font-[300] md:flex">
             <div className="text-[18px] font-bold">USEFUL LINKS</div>
 
-            <Link href={'https://shibarium.shib.io/'} target="_blank">
-              <div>Shibarium</div>
-            </Link>
-
             <Link href={'https://blog.shib.io/'} target="_blank">
               <div>Shib.io Blog</div>
             </Link>
