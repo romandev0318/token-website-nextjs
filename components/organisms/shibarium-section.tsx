@@ -64,9 +64,7 @@ export const ShibariumSection = () => {
             <div className="relative h-[1px] w-full bg-[#202740]" />
 
             <div className="h-auto text-[16px] font-[300] text-[#ECECEC] md:h-[120px] lg:h-[80px]">
-              Collect majestic cards to create your perfect deck, then train with your unique
-              Shiboshis to defeat all your friends and foes alike in this collectible card game now
-              available on iOS and Android stores.
+            Secure and seamless transfer of tokens between our Ethereum and Shibarium blockchain.
             </div>
 
             <div>

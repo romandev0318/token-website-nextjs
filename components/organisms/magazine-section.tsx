@@ -53,7 +53,7 @@ export const MagazineSection = () => {
               className="w-1/2 mobile:w-full md:w-1/4"
               key={`imagewrapperlink ${index}`}
             >
-              <Link href={latestData[index].url} target="_blank" className="w-full">
+              <Link href={'https://news.shib.io/article/' + latestData[index].id} target="_blank" className="w-full">
                 <Image
                   alt="pic"
                   src={latestData[index].feature_image}

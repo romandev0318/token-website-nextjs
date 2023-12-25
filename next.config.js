@@ -10,6 +10,7 @@ const nextConfig = {
     domains: [
       'shib-token.s3.eu-central-1.amazonaws.com',
       'the-shib.ghost.io',
+      'news.shib.io',
       'shib.mypinata.cloud',
     ],
   },
