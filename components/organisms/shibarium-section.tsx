@@ -64,7 +64,7 @@ export const ShibariumSection = () => {
             <div className="relative h-[1px] w-full bg-[#202740]" />
 
             <div className="h-auto text-[16px] font-[300] text-[#ECECEC] md:h-[120px] lg:h-[80px]">
-            Secure and seamless transfer of tokens between our Ethereum and Shibarium blockchain.
+            Secure and seamless transfer of tokens between Ethereum and Shibarium blockchains.
             </div>
 
             <div>
